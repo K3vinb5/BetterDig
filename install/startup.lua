@@ -1,0 +1,1 @@
+shell.run("Better_Dig/better_dig 2000")
