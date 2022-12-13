@@ -1,6 +1,18 @@
-os.loadAPI("Better_Dig/func.lua")
+---@diagnostic disable: undefined-field, undefined-global
+
+os.loadAPI("BetterDig/lib/func.lua")
+os.loadAPI("BetterDig/lib/client.lua")
 local api = require("/GuiH")
 local gui = api.create_gui(term.current())
+
+if func.file_exists("BetterDig/coordinates.txt")then
+    local coordinates_handler = fs.open("BetterDig/coordinates.txt", "r")
+    Z = tonumber(coordinates_handler.readLine())
+    coordinates_handler.close()
+else
+    Z = 0
+end
+
 
 print("\nMade by Kevinb5")
 if turtle.getItemCount(1) < 1 then
@@ -12,13 +24,12 @@ end
 
 args = {...}
 
-local arguments_handler = fs.open("Better_Dig/arguments.txt", "r")
+local arguments_handler = fs.open("arguments.txt", "r") -- missing folder path
 
 flength = tonumber(arguments_handler.readLine())
 rlength = tonumber(arguments_handler.readLine())
-depth = tonumber(arguments_handler.readLine())
+depth = -1 * tonumber(arguments_handler.readLine())
 local x_target = tonumber(arguments_handler.readLine())
-y_original = tonumber(arguments_handler.readLine())
 local z_target = tonumber(arguments_handler.readLine())
 local direction_target = tonumber(arguments_handler.readLine())
 
@@ -26,9 +37,9 @@ arguments_handler.close()
 
 display_exists = false
 
-if func.file_exists("Better_Dig/display.txt") then
+if func.file_exists("BetterDig/display.txt") then
     
-    local display_handler = fs.open("Better_Dig/display.txt", "r")
+    local display_handler = fs.open("BetterDig/display.txt", "r")
     computerId = tonumber(display_handler.readLine())
     modem_side = display_handler.readLine()
     display_exists = true
@@ -57,14 +68,14 @@ local function Mining()
                     func.refuel()
                 end
 
-                local x, y, z = gps.locate(5)
+                local x, z = client.locate()
+                local y = Z
 
                 gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " .. tostring(y) .. " " ..
                                                     tostring(z)
 
-                local percentage = (math.abs(math.sqrt(math.pow(y_original - (y_original - depth), 2)) -
-                                                 math.abs((y_original - depth) - y)) /
-                                       math.sqrt(math.pow(y_original - (y_original - depth), 2))) * 100
+                local percentage = (math.abs(math.sqrt(y_original - (y_original - depth)^2) - math.abs((y_original - depth) - y)) / math.sqrt(y_original - (y_original - depth)^2)) * 100
+
                 gui.gui.progressbar.progress_bar_1.value = percentage
 
                 local fuel_level = (turtle.getFuelLevel() / args[1]) * 100
@@ -97,11 +108,8 @@ local function Mining()
         func.stepDown()
         func.stepDown()
 
-        local x, y, z = gps.locate(5)
-
-        local coordinates_handler = fs.open("Better_Dig/coordinates.txt", "w")
-        coordinates_handler.writeLine(tostring(x))
-        coordinates_handler.writeLine(tostring(y))
+        local coordinates_handler = fs.open("BetterDig/coordinates.txt", "w")
+        z = z - 2
         coordinates_handler.writeLine(tostring(z))
         coordinates_handler.close()
 
@@ -160,10 +168,9 @@ function new_progress_bar(name_arg, x_arg, y_arg, width_arg, height_arg, value_a
 end
 
 -- Variables
-
-local x, y, z = gps.locate(5)
-local x_distance = math.sqrt(math.pow(x - x_target, 2)) - 1
-local z_distance = math.sqrt(math.pow(z - z_target, 2)) - 1
+local x, z = client.locate()
+local x_distance = math.sqrt(x - x_target^2) - 1
+local z_distance = math.sqrt(z - z_target^2) - 1
 
 local direction = func.getOrientation()
 

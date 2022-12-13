@@ -1,5 +1,8 @@
--- Made by Kevinb5, necessary to use better excavate
-os.loadAPI("Better_Dig/func.lua")
+-- Made by Kevinb5, necessary to use BetterField
+---@diagnostic disable: undefined-field, undefined-global
+
+os.loadAPI("BetterDig/lib/func.lua")
+os.loadAPI("BetterDig/lib/client.lua")
 
 print("Made by Kevinb5\nHi, this program will now change your turtle's home coordinates, just wait a bit...")
 
@@ -25,20 +28,24 @@ end
 local args = {...}
 
 if args[1] == nil or args[2] == nil or args[3] == nil or args[1] == "help" then
-    print("Usage: location_set [forward length] [right length] [depth]")
+    print("Usage: [forward length] [right length] [depth]")
     return
 end
-local orientation = getOrientation()
-local x, y, z = gps.locate(5)
 
-local arguments_handler = fs.open("Better_Dig/arguments.txt", "w")
-arguments_handler.writeLine(arg[1])
-arguments_handler.writeLine(arg[2])
-arguments_handler.writeLine(arg[3])
-arguments_handler.writeLine(tostring(x))
-arguments_handler.writeLine(tostring(y))
-arguments_handler.writeLine(tostring(z))
-arguments_handler.writeLine(tostring(orientation))
-arguments_handler.close()
+local orientation = getOrientation()
+
+local x, z = client.locate()
+
+local scanner = fs.open("arguments.txt", "w") -- missing folder path
+
+scanner.writeLine(arg[1])
+scanner.writeLine(arg[2])
+scanner.writeLine(arg[3])
+scanner.writeLine(tostring(x))
+scanner.writeLine(tostring(z))
+scanner.writeLine(tostring(orientation))
+
+scanner.close()
+
 
 print("Done!")
