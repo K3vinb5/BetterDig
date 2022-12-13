@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-field, undefined-global
 
 os.loadAPI("BetterDig/lib/func.lua")
-os.loadAPI("BetterDig/lib/client.lua")
+os.loadAPI("myGps/main/client.lua")
 local api = require("/GuiH")
 local gui = api.create_gui(term.current())
 
@@ -284,4 +284,3 @@ new_text("text_4", "Home Position: " .. x_target .. " " .. z_target, 2, 10)
 --gui.execute(Mining)
 Mining()
 
-print("Hello")
