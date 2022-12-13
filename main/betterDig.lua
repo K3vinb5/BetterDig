@@ -7,10 +7,10 @@ local gui = api.create_gui(term.current())
 
 if func.file_exists("BetterDig/coordinates.txt")then
     local coordinates_handler = fs.open("BetterDig/coordinates.txt", "r")
-    Z = tonumber(coordinates_handler.readLine())
+    Y = tonumber(coordinates_handler.readLine())
     coordinates_handler.close()
 else
-    Z = 0
+    Y = 0
 end
 
 
@@ -28,7 +28,7 @@ local arguments_handler = fs.open("arguments.txt", "r") -- missing folder path
 
 flength = tonumber(arguments_handler.readLine())
 rlength = tonumber(arguments_handler.readLine())
-depth = -1 * tonumber(arguments_handler.readLine())
+depth = tonumber(arguments_handler.readLine())
 local x_target = tonumber(arguments_handler.readLine())
 local z_target = tonumber(arguments_handler.readLine())
 local direction_target = tonumber(arguments_handler.readLine())
@@ -69,12 +69,12 @@ local function Mining()
                 end
 
                 local x, z = client.locate()
-                local y = Z
+                local y = Y
 
                 gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " .. tostring(y) .. " " ..
                                                     tostring(z)
 
-                local percentage = (math.abs(math.sqrt(y_original - (y_original - depth)^2) - math.abs((y_original - depth) - y)) / math.sqrt(y_original - (y_original - depth)^2)) * 100
+                local percentage = (math.abs(math.sqrt(Y - (Y + depth)^2) - math.abs((Y + depth) - y)) / math.sqrt(Y - (Y + depth)^2)) * 100
 
                 gui.gui.progressbar.progress_bar_1.value = percentage
 
@@ -108,9 +108,9 @@ local function Mining()
         func.stepDown()
         func.stepDown()
 
-        local coordinates_handler = fs.open("BetterDig/coordinates.txt", "w")
-        z = z - 2
-        coordinates_handler.writeLine(tostring(z))
+        local coordinates_handler = fs.open("coordinates.txt", "w") --missing folder path
+        Y = Y - 2
+        coordinates_handler.writeLine(tostring(Y))
         coordinates_handler.close()
 
     end
@@ -279,6 +279,9 @@ new_text("text_2", "Progress", 8, 6)
 new_text("credits", "Made by Kevinb5", 1, 13)
 new_text("text_1", os.getComputerLabel(), 17, 2)
 new_text("text_3", "Current Position: ", 2, 8)
-new_text("text_4", "Home Position: " .. x_target .. " " .. y_original .. " " .. z_target, 2, 10)
+new_text("text_4", "Home Position: " .. x_target .. " " .. z_target, 2, 10)
 
-gui.execute(Mining)
+--gui.execute(Mining)
+Mining()
+
+print("Hello")
