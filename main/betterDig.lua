@@ -73,6 +73,7 @@ local function Mining()
                 end
 
                 local x, z = client.locate()
+                print("Current coordinates: " .. x .." " .. z)
                 local y = Y
 
                 gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " .. tostring(y) .. " " ..
