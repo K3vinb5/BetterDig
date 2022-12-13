@@ -36,7 +36,7 @@ local orientation = getOrientation()
 
 local x, z = client.locate()
 
-local scanner = fs.open("arguments.txt", "w") -- missing folder path
+local scanner = fs.open("BetterDig/arguments.txt", "w") 
 
 scanner.writeLine(arg[1])
 scanner.writeLine(arg[2])

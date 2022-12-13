@@ -24,8 +24,7 @@ end
 
 args = {...}
 
-local arguments_handler = fs.open("arguments.txt", "r") -- missing folder path
-
+local arguments_handler = fs.open("BetterDig/arguments.txt", "r") 
 flength = tonumber(arguments_handler.readLine())
 rlength = tonumber(arguments_handler.readLine())
 depth = tonumber(arguments_handler.readLine())
@@ -108,8 +107,7 @@ local function Mining()
         func.stepDown()
         func.stepDown()
 
-        local coordinates_handler = fs.open("coordinates.txt", "w") --missing folder path
-        Y = Y - 2
+        local coordinates_handler = fs.open("BetterDig/coordinates.txt", "w") 
         coordinates_handler.writeLine(tostring(Y))
         coordinates_handler.close()
 

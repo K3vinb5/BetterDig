@@ -1,8 +1,8 @@
 ---@diagnostic disable: undefined-field
 print("\nHi, wait a second, everything will be set up in just a second...\n")
 shell.run("wget run https://github.com/9551-Dev/Gui-h/raw/main/installer.lua")
-shell.run("mkdir Better_Dig")
-shell.run("cd Better_Dig")
+shell.run("mkdir BetterDig")
+shell.run("cd BetterDig")
 --lib
 shell.run("mkdir lib")
 shell.run("cd lib")
