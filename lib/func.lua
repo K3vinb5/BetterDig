@@ -24,7 +24,7 @@ function getOrientation()
     
     turtle.back()
 
-    return ((heading.x + math.abs(heading.x) * 2) + (heading.z + math.abs(heading.z) * 3))
+    return math.floor((heading.x + math.abs(heading.x) * 2) + (heading.z + math.abs(heading.z) * 3) + 0.5)
 end
 
 function step()

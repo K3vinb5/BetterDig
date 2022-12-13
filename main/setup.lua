@@ -2,7 +2,7 @@
 ---@diagnostic disable: undefined-field, undefined-global
 
 os.loadAPI("BetterDig/lib/func.lua")
-os.loadAPI("BetterDig/lib/client.lua")
+os.loadAPI("myGps/main/client.lua")
 
 print("Made by Kevinb5\nHi, this program will now change your turtle's home coordinates, just wait a bit...")
 
