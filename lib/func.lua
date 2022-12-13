@@ -3,7 +3,11 @@
 os.loadAPI("myGps/main/client.lua")
 
 function getOrientation()
-    loc1 = vector.new(client.locate())
+    
+    local loc1 = {}
+    local loc2 = {}
+    
+    loc1.x, loc1.z = client.locate()
     if not turtle.forward() then
         for j = 1, 6 do
             if not turtle.forward() then
@@ -13,9 +17,11 @@ function getOrientation()
             end
         end
     end
-    loc2 = vector.new(client.locate())
-    heading = loc2 - loc1
-
+    loc2.x, loc2.z = client.locate()
+    heading = {}
+    heading.x = loc2.x - loc1.x
+    heading.z = loc2.z - loc1.z
+    
     turtle.back()
 
     return ((heading.x + math.abs(heading.x) * 2) + (heading.z + math.abs(heading.z) * 3))
