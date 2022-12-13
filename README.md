@@ -12,4 +12,4 @@ For this app to work properly you will need:
 
 First you'l start by placing the 3 Advanced computers like this:
 
-![alt text]https://imgur.com/a/S1hnePx
+![alt text](https://imgur.com/a/S1hnePx)
