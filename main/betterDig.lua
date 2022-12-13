@@ -1,5 +1,10 @@
 ---@diagnostic disable: undefined-field, undefined-global
 
+turtle.turnLeft()
+turtle.turnLeft()
+turtle.turnLeft()
+turtle.turnLeft()
+
 os.loadAPI("BetterDig/lib/func.lua")
 os.loadAPI("myGps/main/client.lua")
 local api = require("/GuiH")
@@ -167,8 +172,9 @@ end
 
 -- Variables
 local x, z = client.locate()
-local x_distance = math.sqrt(x - x_target^2) - 1
-local z_distance = math.sqrt(z - z_target^2) - 1
+
+local x_distance = math.sqrt((x - x_target)^2) - 1
+local z_distance = math.sqrt((z - z_target)^2) - 1
 
 local direction = func.getOrientation()
 
