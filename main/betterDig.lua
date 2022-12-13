@@ -178,6 +178,8 @@ local z_distance = math.sqrt((z - z_target)^2) - 1
 
 local direction = func.getOrientation()
 
+print(direction)
+
 -- Find starting location in case computer reboots
 if turtle.getFuelLevel() < 150 then
     func.refuel()
