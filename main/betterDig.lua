@@ -173,11 +173,11 @@ end
 
 -- Variables
 local x, z = client.locate()
-
 local x_distance = math.sqrt((x - x_target)^2) - 1
 local z_distance = math.sqrt((z - z_target)^2) - 1
 
 local direction = func.getOrientation()
+print("Current coordinates: " .. x .." " .. z .. "\nCurrent Orientation: " .. direction)
 
 -- Find starting location in case computer reboots
 if turtle.getFuelLevel() < 150 then
