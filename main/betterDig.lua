@@ -178,8 +178,6 @@ local z_distance = math.sqrt((z - z_target)^2) - 1
 
 local direction = func.getOrientation()
 
-print(direction)
-
 -- Find starting location in case computer reboots
 if turtle.getFuelLevel() < 150 then
     func.refuel()
@@ -287,6 +285,5 @@ new_text("text_1", os.getComputerLabel(), 17, 2)
 new_text("text_3", "Current Position: ", 2, 8)
 new_text("text_4", "Home Position: " .. x_target .. " " .. z_target, 2, 10)
 
---gui.execute(Mining)
-Mining()
+gui.execute(Mining)
 
