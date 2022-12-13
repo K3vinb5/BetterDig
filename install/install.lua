@@ -20,6 +20,8 @@ shell.run("cd ..")
 shell.run("cd ..")
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install/startup.lua")
 shell.run("cd ..")
+--myGps
+shell.run("wget run https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua")
 --seting up the turtle
 print("Please Name your Turtle: ")
 local input = io.read()
