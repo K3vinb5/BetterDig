@@ -19,7 +19,7 @@ shell.run("cd ..")
 --startup
 shell.run("cd ..")
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install/startup.lua")
-shell.run("cd ..")
+shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install/setBetterDig.lua")
 --myGps
 shell.run("wget run https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua")
 --seting up the turtle
