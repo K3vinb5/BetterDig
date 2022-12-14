@@ -8,15 +8,15 @@ For this app to work properly you will need:
 - Advanced Mining Turtle with an Ender Modem attached.
 - 3 Advanced Computers with an Ender Modem attached to each. 
 
-# Incial Set up(One time thing)
-## (1 - Advanced Computers)
+# Setting up the computers(One time thing)
+## (1st step - Advanced Computers)
 First you'l start by placing the 3 Advanced computers like this:
 
 ![alt text](https://i.imgur.com/m2YEZi9.png)
 (2 block spacing between them)
 
 These will be later used to calculate coordinates so the turtle can be server proof.
-## (2 - Advanced Computers)
+## (2nd step - Advanced Computers)
 Then, on each one of the computers you will run this code to install "myGps" app:
 
 ``` wget run https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua```
@@ -34,9 +34,9 @@ Just press 1 to select server, and then you'll be asked to enter the x and z coo
 
 Just repeat the procedure for all 3 computers and this section will be finished.
 
-# Seting up the program itself
+# Setting up the Turtle
 
-## (1 - Advanced Mining Turtle)
+## (1st step - Advanced Mining Turtle)
 Now finally we'll set up the turtle.
 First, start byplacing the turtle where you want to do the hole and then run:
 
@@ -50,7 +50,7 @@ Then, run:
 
 to run the setup to start a new hole.
 
-As before you will be asked if you wish to run that computer as a server or a client, the turtle will be runned as a client.
+As before you will be asked if you wish to run that computer as a server or a client, the turtle will be runned as a client (This part of the setup is a one time thing).
 
 You will then be asked what are the id's of the servers, just check on the server's their ids:
 
@@ -59,15 +59,13 @@ Server Computer:
 
 It dowsn't matter the order at which you input the id's just input them all (It will be changed later so this step is not needed)
 
-## (2)
+## (2 - Advanced Mining Turtle)
 
 You'll then be asked to input the forward lenght of the hole, the right lenght, and the depth.
 
 (Don't forget to refuel the turtle before!!!)
 
 Your turtle should reboot automatically now and it's almost ready to start!
-
-## (2)
 
 For the Program to proceed you will have to put 2 Entangled Chests (Ender Chests) in its first 2 slots, alternatively you can use shulker boxes, but installing a mod with some type of ender chest is highly recommendable. Where the first chest is where the items will go and the second where the turtle will try to fetch some fuel.
 
@@ -77,6 +75,5 @@ For the Program to proceed you will have to put 2 Entangled Chests (Ender Chests
 
 ![alt text](https://i.imgur.com/lfOWRGy.png)
 
-[IT STILL DOES NOT WORK INTENDED, SO IT DOES NOT WORK YET :(]
 
 
