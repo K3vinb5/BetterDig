@@ -18,7 +18,6 @@ else
     Y = 0
 end
 
-
 print("\nMade by Kevinb5")
 if turtle.getItemCount(1) < 1 then
     print("\nPut an entangled chest in the first slot and second slot...  [usage: 1stSlot -> items, 2ndSlot -> fuel]\n")
@@ -38,6 +37,10 @@ local z_target = tonumber(arguments_handler.readLine())
 local direction_target = tonumber(arguments_handler.readLine())
 
 arguments_handler.close()
+
+if (Y >= depth) then
+    error()
+end
 
 display_exists = false
 
@@ -113,7 +116,7 @@ local function Mining()
         turtle.turnRight()
         func.stepDown()
         func.stepDown()
-
+        Y = Y + 2
         local coordinates_handler = fs.open("BetterDig/coordinates.txt", "w") 
         coordinates_handler.writeLine(tostring(Y))
         coordinates_handler.close()
