@@ -44,7 +44,7 @@ end
 
 display_exists = false
 
-if func.file_exists("BetterDig/display.txt") then
+if func.file_exists("BetterDig/lib/display.txt") then
     
     local display_handler = fs.open("BetterDig/display.txt", "r")
     computerId = tonumber(display_handler.readLine())
