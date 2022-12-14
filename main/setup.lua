@@ -18,6 +18,8 @@ local orientation = func.getOrientation()
 
 local x, z = client.locate()
 
+print("x: " .. x .. " y: " .. z .. " orientation: " .. orientation)
+
 local scanner = fs.open("BetterDig/arguments.txt", "w") 
 
 scanner.writeLine(arg[1])
@@ -31,3 +33,5 @@ scanner.close()
 
 
 print("Done!")
+
+os.reboot()

@@ -26,4 +26,4 @@ arg3 = io.read()
 
 shell.run("BetterDig/main/setup.lua " .. arg1 .. " " .. arg2 .. " " .. arg3)
 
-os.reboot()
+--os.reboot()
