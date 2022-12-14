@@ -18,7 +18,9 @@ end
 
 print("Insert forward lenght: ")
 arg1 = io.read()
+print("Insert right lenght: ")
 arg2 = io.read()
+print("Insert depth: ")
 arg3 = io.read()
 
 
