@@ -24,6 +24,6 @@ print("Insert depth: ")
 arg3 = io.read()
 
 
-shell.run("BetterDig/main/betterDig.lua " .. arg1 .. " " .. arg2 .. " " .. arg3)
+shell.run("BetterDig/main/setup.lua " .. arg1 .. " " .. arg2 .. " " .. arg3)
 
 os.reboot()
