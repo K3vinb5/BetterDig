@@ -13,3 +13,5 @@ if file_exists("myGps/serverIds.txt") then
 end
 
 shell.run("BetterDig/main/betterDig.lua")
+
+os.reboot()
