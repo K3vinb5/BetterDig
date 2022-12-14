@@ -21,7 +21,7 @@ end
 
 print("\nMade by Kevinb5")
 if turtle.getItemCount(1) < 1 then
-    print("\nPut an entangled chest in the first slot and second slot...\n")
+    print("\nPut an entangled chest in the first slot and second slot...  [usage: 1stSlot -> items, 2ndSlot -> fuel]\n")
     return
 end
 
@@ -49,6 +49,8 @@ if func.file_exists("BetterDig/display.txt") then
     display_exists = true
     display_handler.close()
 
+else
+
 end
 
 
@@ -73,10 +75,9 @@ local function Mining()
                 end
 
                 local x, z = client.locate()
-                print("Current coordinates: " .. x .." " .. z)
                 local y = Y
 
-                gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " .. tostring(y) .. " " ..
+                gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " ..
                                                     tostring(z)
 
                 local percentage = (math.abs(math.sqrt(Y - (Y + depth)^2) - math.abs((Y + depth) - y)) / math.sqrt(Y - (Y + depth)^2)) * 100
