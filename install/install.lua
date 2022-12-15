@@ -1,4 +1,17 @@
 ---@diagnostic disable: undefined-field
+
+local function recursiveAsk()
+    print("Do you wish setup an external display? (Display app)\n[yes/no]")
+    local answer = io.read()
+    if (answer == "yes")then
+        shell.run("setDisplay")
+    elseif (answer == "no") then
+        return
+    else
+        recursiveAsk()
+    end
+end
+
 print("\nHi, wait a second, everything will be set up in just a second...\n")
 shell.run("wget run https://github.com/9551-Dev/Gui-h/raw/main/installer.lua")
 shell.run("mkdir BetterDig")
@@ -28,4 +41,5 @@ print("Please Name your Turtle: ")
 local input = io.read()
 shell.run(os.setComputerLabel(input))
 print("\nTurtle's name now is: " .. input)
+recursiveAsk()
 print("\nEverything ready!\nYou can now delete this file if you wish.")
