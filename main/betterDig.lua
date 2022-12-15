@@ -292,4 +292,3 @@ new_text("text_3", "Current Position: ", 2, 8)
 new_text("text_4", "Home Position: " .. x_target .. " " .. z_target, 2, 10)
 
 gui.execute(Mining)
-
