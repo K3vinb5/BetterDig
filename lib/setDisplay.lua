@@ -10,30 +10,31 @@ local function has_value (tab, val)
     return false
 end
 
-local scanner = fs.open("BetterDig/lib/display.txt", "w")
---computerId = tonumber(scanner.readLine())
---modem_side = scanner.readLine()
-scanner.close()
-
 shell.run("clear")
 print("\nMade by Kevinb5")
 local tab_validInput = {"right", "left", "down", "up", "front", "back"}
 
 function askUser()
-    
-    print("On what side do you have your modem, ex:[right, left, down, up, front, back]\n")
-        input = io.read()
-    print("What's the id of the monitor's computer")
-        monitorId = io.read()    
 
-        if has_value(tab_validInput, input) then
+    print("On what side do you have your modem, ex:[right, left, down, up, front, back]\n")
+        side = io.read()
+    print("What's the id of the monitor's computer")
+        monitorId = io.read()
+
+        if has_value(tab_validInput, side) then
             local args_scanner = fs.open("BetterDig/lib/display.txt", "w")
-            args_scanner.writeLine(monitorId);
-            args_scanner.writeLine(input)
-            args_scanner.close();
+            args_scanner.writeLine(monitorId)
+            args_scanner.writeLine(side)
+            args_scanner.close()
             print("\nDone!")
             shell.run("clear")
-        
+
+            local cords_scanner = fs.open("BetterDig/coordinates.txt", "w")
+            cords_scanner.writeLine("0")
+            cords_scanner.close()
+            print("\nDone!")
+            shell.run("clear")
+
         else
             print("Invalid input")
             askUser()

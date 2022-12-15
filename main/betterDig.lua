@@ -38,14 +38,14 @@ local direction_target = tonumber(arguments_handler.readLine())
 
 arguments_handler.close()
 
-if (Y >= depth) then
+if (Y >= depth + 2) then
     error()
 end
 
 display_exists = false
 
 if func.file_exists("BetterDig/lib/display.txt") then
-    
+    print("Display file found...")
     local display_handler = fs.open("BetterDig/lib/display.txt", "r")
     computerId = tonumber(display_handler.readLine())
     modem_side = display_handler.readLine()
@@ -63,8 +63,9 @@ local function Mining()
 
     local tilt = 0
 
-    if display_exists then
-    rednet.open(modem_side)
+    if (display_exists) then
+        Modem = peripheral.wrap(modem_side)
+        Modem.open(os.getComputerID())
     end
 
     for i = 1, depth, 1 do
@@ -83,15 +84,15 @@ local function Mining()
                 gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " ..
                                                     tostring(z)
 
-                local percentage = (math.abs(math.sqrt(Y - (Y + depth)^2) - math.abs((Y + depth) - y)) / math.sqrt(Y - (Y + depth)^2)) * 100
+                local percentage = (math.abs(math.sqrt(Y - (Y - depth)^2) - math.abs((Y - depth) - y)) / math.sqrt(Y - (Y - depth)^2)) * 100
 
                 gui.gui.progressbar.progress_bar_1.value = percentage
 
                 local fuel_level = (turtle.getFuelLevel() / args[1]) * 100
                 gui.gui.progressbar.progress_bar_0.value = fuel_level
 
-                if display_exists then
-                    rednet.send(computerId, {x, y, z, percentage, fuel_level}, os.getComputerLabel())
+                if (display_exists) then
+                    Modem.transmit(computerId, os.getComputerID(), {x, y, z, percentage, fuel_level})
                 end
                 
                 turtle.digDown()
