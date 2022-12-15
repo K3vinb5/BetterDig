@@ -1,5 +1,15 @@
 ---@diagnostic disable: undefined-field
 
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 local scanner = fs.open("BetterDig/lib/display.txt", "w")
 --computerId = tonumber(scanner.readLine())
 --modem_side = scanner.readLine()
