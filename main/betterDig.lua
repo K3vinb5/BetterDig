@@ -92,7 +92,7 @@ local function Mining()
                 gui.gui.progressbar.progress_bar_0.value = fuel_level
 
                 if (display_exists) then
-                    Modem.transmit(computerId, os.getComputerID(), {x, y, z, percentage, fuel_level})
+                    Modem.transmit(computerId, os.getComputerID(), {x, y, z, percentage, fuel_level, os.getComputerLabel()})
                 end
                 
                 turtle.digDown()
