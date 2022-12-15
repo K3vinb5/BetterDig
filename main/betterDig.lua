@@ -46,7 +46,7 @@ display_exists = false
 
 if func.file_exists("BetterDig/lib/display.txt") then
     
-    local display_handler = fs.open("BetterDig/display.txt", "r")
+    local display_handler = fs.open("BetterDig/lib/display.txt", "r")
     computerId = tonumber(display_handler.readLine())
     modem_side = display_handler.readLine()
     display_exists = true
@@ -179,7 +179,7 @@ end
 local x, z = client.locate()
 local x_distance = math.sqrt((x - x_target)^2) - 1
 local z_distance = math.sqrt((z - z_target)^2) - 1
-print("xDistance: " .. x_distance .. "zDistance: " .. z_distance)
+print("xDist: " .. x_distance .. " zDist: " .. z_distance)
 local direction = func.getOrientation()
 print("Current coordinates: " .. x .." " .. z .. "\nCurrent Orientation: " .. direction)
 
