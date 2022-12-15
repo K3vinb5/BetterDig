@@ -23,10 +23,12 @@ function askUser()
     
     print("On what side do you have your modem, ex:[right, left, down, up, front, back]\n")
         input = io.read()
-        
+    print("What's the id of the monitor's computer")
+        monitorId = io.read()    
+
         if has_value(tab_validInput, input) then
             local args_scanner = fs.open("BetterDig/lib/display.txt", "w")
-            args_scanner.writeLine(os.getComputerID());
+            args_scanner.writeLine(monitorId);
             args_scanner.writeLine(input)
             args_scanner.close();
             print("\nDone!")
