@@ -1,9 +1,6 @@
 ---@diagnostic disable: undefined-field, undefined-global
 
-turtle.turnLeft()
-turtle.turnLeft()
-turtle.turnLeft()
-turtle.turnLeft()
+turtle.digUp()
 
 os.loadAPI("BetterDig/lib/func.lua")
 os.loadAPI("myGps/main/client.lua")
