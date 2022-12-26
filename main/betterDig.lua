@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-field, undefined-global
 
-turtle.digUp()
+turtle.digUp() -- in case it was refueling or dumping its items before it was turned Off
 
 os.loadAPI("BetterDig/lib/func.lua")
 os.loadAPI("myGps/main/client.lua")
