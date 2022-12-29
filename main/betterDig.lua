@@ -53,126 +53,6 @@ else
 
 end
 
-
--- GUI Functions
-
-local function Mining()
-
-    local tilt = 0
-
-    if (display_exists) then
-        Modem = peripheral.wrap(modem_side)
-        Modem.open(os.getComputerID())
-    end
-
-    for i = 1, depth, 1 do
-        for j = 1, rlength, 1 do
-            for k = 1, flength, 1 do
-                if turtle.getItemCount(16) > 0 then
-                    func.dump()
-                end
-                if turtle.getFuelLevel() < 5 then
-                    func.refuel()
-                end
-
-                local x, z = client.locate()
-                local y = Y
-
-                gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " ..
-                                                    tostring(z)
-
-                local percentage = (math.abs(math.sqrt(Y - (Y - depth)^2) - math.abs((Y - depth) - y)) / math.sqrt(Y - (Y - depth)^2)) * 100
-
-                gui.gui.progressbar.progress_bar_1.value = percentage
-
-                local fuel_level = (turtle.getFuelLevel() / args[1]) * 100
-                gui.gui.progressbar.progress_bar_0.value = fuel_level
-
-                if (display_exists) then
-                    Modem.transmit(computerId, os.getComputerID(), {x, y, z, percentage, fuel_level, os.getComputerLabel()})
-                end
-                
-                turtle.digDown()
-                if k < flength then
-                    func.step()
-                end
-            end
-            if j < rlength then
-                if (j + tilt) % 2 ~= 0 then
-                    func.rotateRight()
-                else
-                    func.rotateLeft()
-                end
-            end
-        end
-        if rlength % 2 == 0 and i % 2 ~= 0 then
-            tilt = 1
-        else
-            tilt = 0
-        end
-        turtle.turnRight()
-        turtle.turnRight()
-        func.stepDown()
-        func.stepDown()
-        Y = Y + 2
-        local coordinates_handler = fs.open("BetterDig/coordinates.txt", "w") 
-        coordinates_handler.writeLine(tostring(Y))
-        coordinates_handler.close()
-
-    end
-end
-
-function execute_function(function_name)
-    function_name()
-end
-
-function new_button(name_arg, x_arg, y_arg, width_arg, height_arg, color_arg, text_arg, function_name_arg)
-
-    gui.create.button({
-        name = name_arg,
-        x = x_arg,
-        y = y_arg,
-        width = width_arg,
-        height = height_arg,
-        background_color = color_arg,
-        text = gui.text {
-            text = text_arg,
-            centered = true,
-            transparent = true
-        },
-        on_click = function(object)
-            execute_function(function_name_arg)
-        end
-    })
-end
-
-function new_text(name_arg, text_arg, x_arg, y_arg)
-    gui.create.text({
-        name = name_arg,
-        text = gui.text {
-            text = text_arg,
-            centered = false,
-            x = x_arg,
-            y = y_arg,
-            transparent = true
-        }
-    })
-end
-
-function new_progress_bar(name_arg, x_arg, y_arg, width_arg, height_arg, value_arg)
-    gui.create.progressbar({
-        name = name_arg,
-        x = x_arg,
-        y = y_arg,
-        width = width_arg,
-        height = height_arg,
-        fg = colors.green,
-        bg = colors.gray,
-        value = value_arg,
-        direction = "left-right"
-    })
-end
-
 -- Variables
 local x, z = client.locate()
 local x_distance = math.sqrt((x - x_target)^2) - 1
@@ -268,6 +148,126 @@ else
     end
     print("\nRelocated!\nIniciating GUI...")
 end
+
+-- GUI Functions
+
+local function Mining()
+
+    local tilt = 0
+
+    if (display_exists) then
+        Modem = peripheral.wrap(modem_side)
+        Modem.open(os.getComputerID())
+    end
+
+    for i = 1, depth, 1 do
+        for j = 1, rlength, 1 do
+            for k = 1, flength, 1 do
+                if turtle.getItemCount(16) > 0 then
+                    func.dump()
+                end
+                if turtle.getFuelLevel() < 5 then
+                    func.refuel()
+                end
+
+                local x, z = client.locate()
+                local y = Y
+
+                gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " ..
+                                                    tostring(z)
+
+                local percentage = math.abs( Z / depth ) * 100
+
+                gui.gui.progressbar.progress_bar_1.value = percentage
+
+                local fuel_level = (turtle.getFuelLevel() / args[1]) * 100
+                gui.gui.progressbar.progress_bar_0.value = fuel_level
+
+                if (display_exists) then
+                    Modem.transmit(computerId, os.getComputerID(), {x, y, z, percentage, fuel_level, os.getComputerLabel()})
+                end
+                
+                turtle.digDown()
+                if k < flength then
+                    func.step()
+                end
+            end
+            if j < rlength then
+                if (j + tilt) % 2 ~= 0 then
+                    func.rotateRight()
+                else
+                    func.rotateLeft()
+                end
+            end
+        end
+        if rlength % 2 == 0 and i % 2 ~= 0 then
+            tilt = 1
+        else
+            tilt = 0
+        end
+        turtle.turnRight()
+        turtle.turnRight()
+        func.stepDown()
+        func.stepDown()
+        Y = Y + 2
+        local coordinates_handler = fs.open("BetterDig/coordinates.txt", "w") 
+        coordinates_handler.writeLine(tostring(Y))
+        coordinates_handler.close()
+
+    end
+end
+
+function execute_function(function_name)
+    function_name()
+end
+
+function new_button(name_arg, x_arg, y_arg, width_arg, height_arg, color_arg, text_arg, function_name_arg)
+
+    gui.create.button({
+        name = name_arg,
+        x = x_arg,
+        y = y_arg,
+        width = width_arg,
+        height = height_arg,
+        background_color = color_arg,
+        text = gui.text {
+            text = text_arg,
+            centered = true,
+            transparent = true
+        },
+        on_click = function(object)
+            execute_function(function_name_arg)
+        end
+    })
+end
+
+function new_text(name_arg, text_arg, x_arg, y_arg)
+    gui.create.text({
+        name = name_arg,
+        text = gui.text {
+            text = text_arg,
+            centered = false,
+            x = x_arg,
+            y = y_arg,
+            transparent = true
+        }
+    })
+end
+
+function new_progress_bar(name_arg, x_arg, y_arg, width_arg, height_arg, value_arg)
+    gui.create.progressbar({
+        name = name_arg,
+        x = x_arg,
+        y = y_arg,
+        width = width_arg,
+        height = height_arg,
+        fg = colors.green,
+        bg = colors.gray,
+        value = value_arg,
+        direction = "left-right"
+    })
+end
+
 
 -- GUI Stuff
 
