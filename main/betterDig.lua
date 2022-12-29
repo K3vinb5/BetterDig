@@ -176,7 +176,7 @@ local function Mining()
                 gui.gui.text.text_3.text.text = "Current Position: " .. tostring(x) .. " " ..
                                                     tostring(z)
 
-                local percentage = math.abs( Z / depth ) * 100
+                local percentage = math.abs( Y / depth ) * 100
 
                 gui.gui.progressbar.progress_bar_1.value = percentage
 
