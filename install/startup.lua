@@ -1,1 +1,1 @@
-shell.run("BetterDig/main/betterDig.lua 1000")
+shell.run("BetterDig/main/betterDig.lua 200000")

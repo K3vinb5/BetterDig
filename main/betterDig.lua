@@ -1,5 +1,7 @@
 ---@diagnostic disable: undefined-field, undefined-global
 
+DisplayChannel = 65533
+
 turtle.digUp() -- in case it was refueling or dumping its items before it was turned Off
 
 os.loadAPI("BetterDig/lib/func.lua")
@@ -32,26 +34,16 @@ depth = tonumber(arguments_handler.readLine())
 local x_target = tonumber(arguments_handler.readLine())
 local z_target = tonumber(arguments_handler.readLine())
 local direction_target = tonumber(arguments_handler.readLine())
-
 arguments_handler.close()
+
+local modemScanner = fs.open("myGps/orientation.txt", "r")
+modem_side = modemScanner.readLine()
+modemScanner.close()
 
 if (Y >= depth + 2) then
     error()
 end
 
-display_exists = false
-
-if func.file_exists("BetterDig/lib/display.txt") then
-    print("Display file found...")
-    local display_handler = fs.open("BetterDig/lib/display.txt", "r")
-    computerId = tonumber(display_handler.readLine())
-    modem_side = display_handler.readLine()
-    display_exists = true
-    display_handler.close()
-
-else
-
-end
 
 -- Variables
 local x, z = client.locate()
@@ -155,10 +147,10 @@ local function Mining()
 
     local tilt = 0
 
-    if (display_exists) then
-        Modem = peripheral.wrap(modem_side)
-        Modem.open(os.getComputerID())
-    end
+   
+    Modem = peripheral.wrap(modem_side)
+    Modem.open(os.getComputerID())
+    
 
     for i = 1, depth, 1 do
         for j = 1, rlength, 1 do
@@ -183,9 +175,9 @@ local function Mining()
                 local fuel_level = (turtle.getFuelLevel() / args[1]) * 100
                 gui.gui.progressbar.progress_bar_0.value = fuel_level
 
-                if (display_exists) then
-                    Modem.transmit(computerId, os.getComputerID(), {x, y, z, percentage, fuel_level, os.getComputerLabel()})
-                end
+                
+                Modem.transmit(DisplayChannel, os.getComputerID(), {x, y, z, percentage, fuel_level, os.getComputerLabel()})
+                
                 
                 turtle.digDown()
                 if k < flength then
