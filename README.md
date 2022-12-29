@@ -42,7 +42,7 @@ First, start byplacing the turtle where you want to do the hole and then run:
 
 You'll be asked to name your turtle, justa name it whatever you want.
 
-Finally you will be asked if you wish to use my other app which syncs the turtle stats with a computer with monitors that you can have on your base etc.
+Additionally you can use my other app which syncs the turtle stats with a computer with monitors that you can have on your base etc.
 If you wish to use it just follow the setup and learn more at: https://github.com/K3vinb5/Display
 
 To configure a new hole just run: (Run this every time you want to start a new hole)
