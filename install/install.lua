@@ -8,7 +8,6 @@ shell.run("cd BetterDig")
 --lib
 shell.run("mkdir lib")
 shell.run("cd lib")
-shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/lib/client.lua")
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/lib/func.lua")
 shell.run("cd ..")
 --main
@@ -30,4 +29,5 @@ print("Please Name your Turtle: ")
 local input = io.read()
 shell.run(os.setComputerLabel(input))
 print("\nTurtle's name now is: " .. input)
+shell.run("setmyGps")
 print("\nEverything ready!\nYou can now delete this file if you wish.")
