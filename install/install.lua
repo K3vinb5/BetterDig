@@ -23,7 +23,9 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install/setBetterDig.lua")
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/lib/setDisplay.lua")
 --myGps
-shell.run("wget run https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua")
+shell.run("wget get https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua")
+shell.run("install 0")
+shell.run("rm install")
 --seting up the turtle
 print("Please Name your Turtle: ")
 local input = io.read()
