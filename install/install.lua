@@ -24,7 +24,6 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install
 --myGps
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua")
 shell.run("install 0")
-shell.run("rm install")
 --seting up the turtle
 print("Please Name your Turtle: ")
 local input = io.read()
