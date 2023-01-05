@@ -30,7 +30,7 @@ scanner.writeLine(tostring(z))
 scanner.writeLine(tostring(orientation))
 
 scanner.close()
-
+shell.run("rm BetterDig/coordinates.txt")
 
 print("Done!")
 
