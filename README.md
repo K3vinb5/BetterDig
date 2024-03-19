@@ -19,7 +19,7 @@ These will be later used to calculate coordinates so the turtle can be server pr
 ## (2nd step - Running the setup)
 Then, on each one of the computers you will run this code to install "myGps" app:
 
-``` wget run https://raw.githubusercontent.com/K3vinb5/myGps/main/install/install.lua```
+``` wget run https://raw.githubusercontent.com/K3vinb5/BetterDig/myGps/main/install/install.lua```
 
 The program will automatically run a setup file for the gps (This will be a one time thing), but if you wish to restart the process later just run:
 
@@ -38,7 +38,7 @@ Just repeat the procedure for all 3 computers and this section will be finished.
 Now finally we'll set up the turtle.
 First, start byplacing the turtle where you want to do the hole and then run:
 
-``` wget run https://raw.githubusercontent.com/K3vinb5/BetterDig/main/install/install.lua ```
+``` wget run https://raw.githubusercontent.com/K3vinb5/BetterDig/BetterDig/main/install/install.lua ```
 
 You'll be asked to name your turtle, justa name it whatever you want.
 
@@ -78,3 +78,37 @@ For the Program to proceed you will have to put 2 Entangled Chests (Ender Chests
 
 
 
+# Display (Optional, but recommended)
+Application made for a game mod ( ComputerCraft ), it is an addon to other app I've made, it basically keeps track of a turtle (which function is mining) coordinates, fuel, and progress, so you can relax while your turtle does the job for you :).
+
+## Materials Needed
+
+ - Advanced Computer
+ - 12 Monitors
+ - Ender Modem
+
+# Setting up the computer
+
+## (1st step - Placing the computer and monitors )
+
+Start by placing your computer and 12 monitors, the computer has to make contack with monitor in some way (right, left, top, botom...), here's one sugestion:
+
+![alt text](https://i.imgur.com/ka6wkHF.png)
+
+## (2nd step - Setting up the computer)
+
+First, start by running:
+
+ ``` wget run https://raw.githubusercontent.com/K3vinb5/BetterDig/Display/main/install/install.lua ``` 
+
+ to install the app.
+
+The app will then run automatically the setup ( You can run it yourself in case you misspelled someting later by runnnig ``` setDisplay ``` )
+
+You will be asked on what side is your modem on and on what side is the monitor on
+
+## (3rd step - Setting up the turtle)
+
+You will be presented with a menu wherer you can choose your turtle id to look at his stats if you have multiple turtles you can always change which one you're seeing in the stats
+
+![alt text](https://i.imgur.com/2NP6s6T.png)

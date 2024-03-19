@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "shell",
+        "fs",
+        "rednet"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-field"
+    ]
+}
