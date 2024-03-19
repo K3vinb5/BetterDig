@@ -112,3 +112,11 @@ You will be asked on what side is your modem on and on what side is the monitor 
 You will be presented with a menu wherer you can choose your turtle id to look at his stats if you have multiple turtles you can always change which one you're seeing in the stats
 
 ![alt text](https://i.imgur.com/2NP6s6T.png)
+
+# myGps
+App made for ComputerCraft
+
+Right now all you can do is calculate a the 2d coordinates of a client based on the distance and coordinates of the servers using the locate() function on the client :)
+
+To install run the following command: 
+wget run https://raw.githubusercontent.com/BetterDig/K3vinb5/myGps/main/install/install.lua
