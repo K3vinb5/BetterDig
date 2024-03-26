@@ -8,7 +8,7 @@ shell.run("cd BetterDig")
 --lib
 shell.run("mkdir lib")
 shell.run("cd lib")
-shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterDig/main/lib/func.lua")
+shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterDig/lib/func.lua")
 shell.run("cd ..")
 --main
 shell.run("mkdir main")
@@ -19,10 +19,10 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterD
 shell.run("cd ..")
 --startup
 shell.run("cd ..")
-shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterDig/main/install/startup.lua")
-shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterDig/main/install/setBetterDig.lua")
+shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterDig/install/startup.lua")
+shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/BetterDig/install/setBetterDig.lua")
 --myGps
-shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/myGps/main/install/install.lua installmyGps")
+shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/myGps/install/install.lua installmyGps")
 shell.run("installmyGps 0")
 shell.run("rm installmyGps")
 --seting up the turtle

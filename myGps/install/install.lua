@@ -12,16 +12,16 @@ shell.run("cd ..")
 shell.run("cd ..")
 if args[1] ~= nil then
     if args[1] == "0" then
-        shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/myGps/main/install/setmyGpsClient.lua")
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/myGps/install/setmyGpsClient.lua")
         shell.run("setmyGpsClient")
     elseif args[1] == "1" then
-        shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/myGps/main/install/setmyGpsServer.lua")
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/myGps/install/setmyGpsServer.lua")
         shell.run("setmyGpsServer")
     else
-        shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/myGps/main/install/setmyGps.lua")
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/myGps/install/setmyGps.lua")
         shell.run("setmyGps")
     end
 else
-    shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/myGps/main/install/setmyGps.lua")
+    shell.run("wget https://raw.githubusercontent.com/K3vinb5/BetterDig/main/myGps/install/setmyGps.lua")
     shell.run("setmyGps")
 end
